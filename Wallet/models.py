@@ -55,7 +55,7 @@ class Card(models.Model):
      CVVcode = models.CharField(max_length=8)
 
 class ThirdParty(models.Model):
-     name = models.CharField(max_length=8)
+     name = models.CharField(max_length=18)
      gender = models.CharField(max_length=10)
      account = models.ForeignKey(to=Customer,on_delete=models.CASCADE)
      location = models.CharField(max_length=20)
@@ -70,13 +70,12 @@ class Notification(models.Model):
      status = models.BooleanField()
 
 class Receipt(models.Model):
-     first_name = models.CharField(max_length=7)
+     first_name = models.CharField(max_length=12)
      last_name = models.CharField(max_length=10)
      amount = models.BigIntegerField()
      datetime = models.DateTimeField()
      receipt_number = models.CharField(max_length=8)
      description = models.TextField()
-     file = models.FileField()
      receipt_type = models.CharField(max_length=9)
    
 class Loan(models.Model):
@@ -91,7 +90,7 @@ class Loan(models.Model):
      Wallet = models.ForeignKey(null=True,on_delete=models.CASCADE,to=Wallet)
     
 class Reward(models.Model):
-     name = models.CharField(max_length=8)
+     name = models.CharField(max_length=20)
      recipient = models.ForeignKey(to=Customer,on_delete=models.CASCADE)
      discount = models.IntegerField()
      points = models.SmallIntegerField()
